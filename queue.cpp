@@ -1,6 +1,5 @@
 #include "Node.h"
 #include<iostream>
-
 class EmptyQueueException: public std::exception{
 public:
     const char * what() noexcept{
@@ -8,6 +7,10 @@ public:
     }
 };
 
+/*
+ * NOTE: The dynamic memory allocation of this class are not completely implemented since it is mostly the same
+ * with the Linked_list class in linkedlist.cpp
+ */
 template <typename T>
 class Queue{
 public:

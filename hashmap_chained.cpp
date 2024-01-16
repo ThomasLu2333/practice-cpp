@@ -84,20 +84,20 @@ private:
     }
 };
 
-//int main(){
-//    Hashmap_chained<int, int> map{[](const int &a) { return a; }};
-//    for (int i = 0; i < 300; i++){
-//        map.put(i, i);
-//    }
-//    cout << map.get(1) << endl;
-//    cout << map.get(7) << endl;
-//    cout << map.get(13) << endl;
-//    map.put(14, 0);
-//    cout << map.get(14) << endl;
-//    cout << map.has_key(2) << endl;
-//    cout << map.has_key(20) << endl;
-//    map.remove(1);
-//    cout << map.has_key(1) << endl;
-//    const int& a = map.get(299);
-//    cout << a << endl;
-//}
+int main(){
+    Hashmap_chained<int, int> map{[](const int &a) { return a; }};
+    for (int i = 0; i < 300; i++){
+        map.put(i, i);
+    }
+    cout << map.get(1) << endl;
+    cout << map.get(7) << endl;
+    cout << map.get(13) << endl;
+    map.put(14, 0);
+    cout << map.get(14) << endl;
+    cout << map.has_key(2) << endl;
+    cout << map.has_key(20) << endl;
+    map.remove(1);
+    cout << map.has_key(1) << endl;
+    const int& a = map.get(299);
+    cout << a << endl;
+}

@@ -12,5 +12,6 @@ struct Map{
     virtual V &get(const K &key) = 0;
     virtual bool has_key(const K &key) const = 0;
     virtual bool remove(const K &key) = 0;
+    virtual ~Map() = default;
 };
 #endif //DATA_STRUCTURES_MAP_H

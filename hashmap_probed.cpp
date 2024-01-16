@@ -116,30 +116,30 @@ public:
     }
 };
 
-int main() {
-    Hashmap_probed<int, int> map{[](int x){ return x; }};
-    map.put(0, 0);
-    map.put(10, 1);
-    map.put(20, 2);
-    map.put(1, 3);
-    map.put(2, 4);
-    map.put(8, 8);
-    cout << map[0] << std::endl;
-    cout << map[10] << std::endl;
-    cout << map[20] << std::endl;
-    cout << map[1]<< std::endl;
-    cout << map[2] << std::endl;
-    cout << map[8] << std::endl;
-    map.put(7, 7);
-    map.put(6, 6);
-    map.put(5, 5);
-    map.remove(20);
-    map.remove(2);
-    cout << map.get(0) << std::endl;
-    cout << map.get(7) << std::endl;
-    cout << map.get(10) << std::endl;
-    cout << map.get(1) << std::endl;
-    cout << map.get(6) << std::endl;
-    cout << map.get(8) << std::endl;
-    cout << map.get(5) << std::endl;
-}
+//int main() {
+//    Hashmap_probed<int, int> map{[](int x){ return x; }};
+//    map.put(0, 0);
+//    map.put(10, 1);
+//    map.put(20, 2);
+//    map.put(1, 3);
+//    map.put(2, 4);
+//    map.put(8, 8);
+//    cout << map[0] << std::endl;
+//    cout << map[10] << std::endl;
+//    cout << map[20] << std::endl;
+//    cout << map[1]<< std::endl;
+//    cout << map[2] << std::endl;
+//    cout << map[8] << std::endl;
+//    map.put(7, 7);
+//    map.put(6, 6);
+//    map.put(5, 5);
+//    map.remove(20);
+//    map.remove(2);
+//    cout << map.get(0) << std::endl;
+//    cout << map.get(7) << std::endl;
+//    cout << map.get(10) << std::endl;
+//    cout << map.get(1) << std::endl;
+//    cout << map.get(6) << std::endl;
+//    cout << map.get(8) << std::endl;
+//    cout << map.get(5) << std::endl;
+//}
