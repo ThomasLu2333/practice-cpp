@@ -81,7 +81,7 @@ public:
     }
 
     Linked_list<T> &operator=(const Linked_list<T> &other) {
-        if (this == other) {
+        if (this == &other) {
             return *this;
         }
         while (size != 0) remove(0);
