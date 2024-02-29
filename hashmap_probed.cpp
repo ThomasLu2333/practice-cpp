@@ -2,11 +2,13 @@
 #include <utility>
 #include <vector>
 #include <iostream>
-#include <functional>
+#include<map>
 
 using std::vector;
 using std::function;
 using std::cout;
+using std::map;
+using std::string;
 
 template<typename K, typename V>
 class Hashmap_probed : public Map<K, V> {
@@ -92,11 +94,15 @@ public:
     };
 
     V &get(const K &key) override {
+        return static_cast<V&>(static_cast<const Hashmap_probed<K, V>>(*this).get(key));
+    };
+
+    const V &get(const K &key) const override{
         if (not has_key(key)){
             throw Map_invalid_key_error();
         }
         return map[find(key)].value;
-    };
+    }
 
     [[nodiscard]] bool has_key(const K &key) const override {
         return map[find(key)].key == key;
@@ -110,36 +116,34 @@ public:
         }
         return false;
     };
-
-    V &operator[] (const K &key){
-        return get(key);
-    }
 };
 
 //int main() {
-//    Hashmap_probed<int, int> map{[](int x){ return x; }};
-//    map.put(0, 0);
-//    map.put(10, 1);
-//    map.put(20, 2);
-//    map.put(1, 3);
-//    map.put(2, 4);
-//    map.put(8, 8);
-//    cout << map[0] << std::endl;
-//    cout << map[10] << std::endl;
-//    cout << map[20] << std::endl;
-//    cout << map[1]<< std::endl;
-//    cout << map[2] << std::endl;
-//    cout << map[8] << std::endl;
-//    map.put(7, 7);
-//    map.put(6, 6);
-//    map.put(5, 5);
-//    map.remove(20);
-//    map.remove(2);
-//    cout << map.get(0) << std::endl;
-//    cout << map.get(7) << std::endl;
-//    cout << map.get(10) << std::endl;
-//    cout << map.get(1) << std::endl;
-//    cout << map.get(6) << std::endl;
-//    cout << map.get(8) << std::endl;
-//    cout << map.get(5) << std::endl;
+//    map<string, int> m{{"CPU", 10}, {"GPU", 15}, {"RAM", 20}};
+//    cout << m["appappapapapap"];
+////    Hashmap_probed<int, int> map{[](int x){ return x; }};
+////    map.put(0, 0);
+////    map.put(10, 1);
+////    map.put(20, 2);
+////    map.put(1, 3);
+////    map.put(2, 4);
+////    map.put(8, 8);
+////    cout << map.get(0) << std::endl;
+////    cout << map.get(10) << std::endl;
+////    cout << map.get(20) << std::endl;
+////    cout << map.get(1)<< std::endl;
+////    cout << map.get(2) << std::endl;
+////    cout << map.get(8) << std::endl;
+////    map.put(7, 7);
+////    map.put(6, 6);
+////    map.put(5, 5);
+////    map.remove(20);
+////    map.remove(2);
+////    cout << map.get(0) << std::endl;
+////    cout << map.get(7) << std::endl;
+////    cout << map.get(10) << std::endl;
+////    cout << map.get(1) << std::endl;
+////    cout << map.get(6) << std::endl;
+////    cout << map.get(8) << std::endl;
+////    cout << map.get(5) << std::endl;
 //}
